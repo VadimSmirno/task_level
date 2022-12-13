@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for i in list_task %}
+<ul>
+      {% if i.priority == 1 %}
+           <li><a href="{% url 'detail' i.id %}" style="background-color: green"> {{i}} </a></li>
+        {% elif i.priority == 2 %}
+            <li><a href="{% url 'detail' i.id %}" style="background-color: orange"> {{i}}</a></li>
+        {% else %}
+            <li><a href="" style="background-color: red">{{i}}</a></li>
+      {% endif %}
+ </ul>
+{% endfor %}
+</body>
+</html>
