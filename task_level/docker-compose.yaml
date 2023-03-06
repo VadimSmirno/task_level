@@ -9,10 +9,9 @@ services:
     env_file:
       - .env
 
-
   back:
     build: .
-    command: sh -c "cd task_level && python3 manage.py migrate && python3 manage.py collectstatic && gunicorn diary_backend.wsgi:application --workers 2 --bind 0.0.0.0:8000"
+    command: sh -c "python3 manage.py createsuperuser && python3 manage.py migrate && gunicorn task_level.wsgi:application --workers 2 --bind 0.0.0.0:8000 "
     restart: always
     volumes:
       - ../static/:/code/static/
@@ -33,7 +32,6 @@ services:
     restart: always
     depends_on:
       - db
-
 
 volumes:
   postgres_data:

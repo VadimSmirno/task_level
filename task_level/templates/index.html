@@ -12,7 +12,7 @@
         {% elif i.priority == 2 %}
             <li><a href="{% url 'detail' i.id %}" style="background-color: orange"> {{i}}</a></li>
         {% else %}
-            <li><a href="" style="background-color: red">{{i}}</a></li>
+            <li><a href="{% url 'detail' i.id %}" style="background-color: red">{{i}}</a></li>
       {% endif %}
  </ul>
 {% endfor %}

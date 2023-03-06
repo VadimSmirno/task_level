@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qf*-f_^-9-r9$g44)y=1r++oizx$s!7zxk$8c@y90ggu3n#y&5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'task_level.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': os.environ.get("NAME"),
-    'USER': os.environ.get("USER"),
-    'PASSWORD': os.environ.get("PASSWORD"),
+    'NAME': os.environ.get("POSTGRES_DB"),
+    'USER': os.environ.get("POSTGRES_USER"),
+    'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
     'HOST': os.environ.get("HOST"),
     'PORT': os.environ.get("PORT")
 }
